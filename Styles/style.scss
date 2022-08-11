@@ -1,0 +1,428 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// vars
+// fonts
+$openSans: "Open Sans", sans-serif;
+$raleway: "Raleway", sans-serif;
+// colors
+$VeryDarkBlue: hsl(243, 87%, 12%);
+$DesaturatedBlue: hsl(238, 22%, 44%);
+$BrightBlue: hsl(224, 93%, 58%);
+$ModerateCyan: hsl(170, 45%, 43%);
+$LightGrayishBlue: hsl(240, 75%, 98%);
+$LightGray: hsl(0, 0%, 75%);
+// header
+header {
+  // navbar
+  .navbar {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    @media screen and (max-width: 600px) {
+      padding: 1rem !important;
+    }
+    .logo {
+      img {
+        height: 2rem;
+        @media screen and (max-width: 600px) {
+          height: 1.5rem;
+        }
+      }
+    }
+    .nav-Lists {
+      list-style: none;
+      display: flex;
+      gap: 3rem;
+      @media screen and (max-width: 600px) {
+        gap: 1.5rem;
+      }
+      li {
+        a {
+          text-decoration: none;
+          font-family: $raleway;
+          font-size: 1rem;
+          color: $DesaturatedBlue;
+          transition: all 0.2s ease-in-out;
+        }
+        &:hover {
+          a {
+            // font-weight: 700;
+            text-decoration: underline !important;
+          }
+        }
+      }
+    }
+  }
+  //   landing hero
+  .landing-hero {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 5rem 2rem;
+    background: url(../images/bg-curve-desktop.svg) no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    @media screen and (max-width: 600px) {
+      flex-flow: column-reverse;
+      background: url(../images/bg-curve-mobile.svg) no-repeat;
+      background-size: contain;
+      background-position: bottom center;
+    }
+    .left {
+      flex-basis: 50%;
+      @media screen and (max-width: 600px) {
+        text-align: center;
+      }
+      .heading {
+        max-width: 40rem;
+        font-family: $raleway;
+        color: $VeryDarkBlue;
+        line-height: 1.5em;
+      }
+      .caption {
+        max-width: 40rem;
+        font-family: $openSans;
+        color: $VeryDarkBlue;
+        padding: 1rem 0;
+      }
+      .get-started {
+        display: flex;
+        gap: 1rem;
+        @media screen and (max-width: 600px) {
+          flex-flow: column;
+        }
+        label{
+            text-align: left;
+        }
+        input {
+          padding: 1rem;
+          width: 20rem;
+          border: 1px solid $LightGray;
+          border-radius: 5px;
+          @media screen and (max-width: 600px) {
+            width: 100%;
+          }
+          &::placeholder {
+            font-family: $openSans;
+            letter-spacing: 0.5px;
+            color: $LightGray;
+          }
+        }
+        .get-StartedBtn {
+          cursor: pointer;
+          font-family: $raleway;
+          font-size: 1rem;
+          font-weight: 700;
+          padding: 0.5rem 3rem;
+          border: none;
+          border-radius: 5px;
+          color: white;
+          background: $BrightBlue;
+          transition: all 0.3s ease-in-out;
+          @media screen and (max-width: 600px) {
+            padding: 1rem 3rem;
+          }
+          &:hover {
+            background: $BrightBlue/.65;
+          }
+        }
+      }
+    }
+    .right {
+      flex-basis: 50%;
+      .image img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// main
+main {
+  // productive
+  .productive {
+    display: flex;
+    gap: 2rem;
+    padding: 5rem 2rem;
+    background: $LightGrayishBlue;
+    @media screen and (max-width: 600px) {
+      flex-flow: column-reverse;
+    }
+    .left {
+      flex-basis: 50%;
+      .heading {
+        font-family: $raleway;
+        color: $VeryDarkBlue;
+        padding-bottom: 1rem;
+        @media screen and (max-width: 600px) {
+          text-align: center;
+          font-size: 1.2rem;
+        }
+      }
+      .caption {
+        font-family: $openSans;
+        font-size: 1rem;
+        color: $VeryDarkBlue;
+        padding: 0.5rem 0;
+        &:nth-of-type(2) {
+          padding-bottom: 1rem;
+        }
+      }
+      .how-works {
+        position: relative;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        font-family: $raleway;
+        font-weight: 700;
+        color: $ModerateCyan;
+        transition: all 0.3s ease-in-out;
+        @media screen and (max-width: 600px) {
+          margin: 0 auto;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          height: 2px;
+          width: 100%;
+          bottom: -0.3rem;
+          left: 0;
+          background: $ModerateCyan;
+          transition: all 0.3s ease-in-out;
+        }
+        svg path {
+          fill: white;
+        }
+        svg use {
+          fill: $ModerateCyan;
+          transition: all 0.3s ease-in-out;
+        }
+        &:hover {
+          color: $ModerateCyan/.7;
+          &::after {
+            background: $ModerateCyan/.7;
+          }
+          svg use {
+            fill: $ModerateCyan/.7;
+          }
+        }
+      }
+      .testimony {
+        max-width: 30rem;
+        display: flex;
+        flex-flow: column;
+        gap: 1rem;
+        padding: 2rem;
+        border-radius: 10px;
+        background: white;
+        margin-top: 3rem;
+        .quotes {
+          align-self: flex-start;
+        }
+        .text {
+          font-family: $openSans;
+          color: $VeryDarkBlue;
+        }
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          img {
+            height: 2rem;
+            border-radius: 50%;
+          }
+          .details {
+            .name {
+              font-family: $raleway;
+              font-size: 1rem;
+              color: $VeryDarkBlue;
+            }
+            .role {
+              font-family: $openSans;
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+    .right {
+      flex-basis: 50%;
+      .image img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  //   newsletter
+  .newsletter {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: 4rem 3rem;
+    background: $DesaturatedBlue;
+    @media screen and (max-width: 600px) {
+      flex-flow: column;
+    }
+    .left {
+      flex-basis: 50%;
+      @media screen and (max-width: 600px) {
+        text-align: center;
+      }
+      .heading {
+        font-family: $raleway;
+        color: $LightGrayishBlue;
+        @media screen and (max-width: 600px) {
+          font-size: 1.2rem;
+        }
+      }
+      .caption {
+        max-width: 40rem;
+        font-family: $openSans;
+        color: $LightGray;
+        padding: 1rem 0;
+      }
+    }
+    .right {
+      // flex-basis: 50%;
+      display: flex;
+      flex-flow: column;
+      margin: 0 auto;
+      gap: 1rem;
+      input {
+        width: 20rem;
+        padding: 1rem;
+        border: none;
+        border-radius: 5px;
+        &::placeholder {
+          font-family: $openSans;
+          letter-spacing: 0.5px;
+          color: $LightGray;
+        }
+      }
+      .getStarted {
+        cursor: pointer;
+        align-self: flex-start;
+        font-family: $raleway;
+        font-weight: 700;
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 5px;
+        color: $LightGrayishBlue;
+        background: $BrightBlue;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.171);
+        transition: all 0.3s ease-in-out;
+        @media screen and (max-width: 600px) {
+          align-self: stretch;
+          padding: 1rem 2rem;
+        }
+        &:hover {
+          background: $BrightBlue/.6;
+        }
+      }
+    }
+  }
+}
+
+// footer
+
+footer {
+  display: flex;
+  flex-flow: column;
+  background: $VeryDarkBlue;
+  padding: 5rem 4rem 2rem;
+
+  .Fylo-logo {
+    align-self: flex-start;
+    path {
+      fill: white;
+    }
+  }
+  .about {
+    display: flex;
+    // justify-content: space-between;
+    gap: 10rem;
+    padding-top: 1.5rem;
+    @media screen and (max-width: 600px) {
+      flex-flow: column;
+      gap: 4rem;
+      padding-top: 2rem;
+    }
+    .contact {
+      .mobile,
+      .mail {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        span {
+          font-family: $openSans;
+          font-size: 0.9rem;
+          color: white;
+        }
+      }
+      .mail {
+        padding-top: 1rem;
+      }
+    }
+    .basic-Links,
+    .important-Links {
+      list-style: none;
+      display: flex;
+      flex-flow: column;
+      gap: 0.5rem;
+      li a {
+        text-decoration: none;
+        font-family: $openSans;
+        font-size: 0.9rem;
+        color: white;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          color: $BrightBlue;
+        }
+      }
+    }
+    .social-handles {
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      @media screen and (max-width: 600px) {
+        align-self: center !important;
+      }
+      .fb,
+      .twitter,
+      .insta {
+        cursor: pointer;
+        height: 2rem;
+        width: 2rem;
+        transition: all 0.2s ease-in-out;
+        path {
+          fill: white;
+          transition: all 0.3s ease-in-out;
+        }
+        &:hover {
+          path {
+            fill: $BrightBlue;
+          }
+        }
+      }
+    }
+  }
+}
+
+// utilities
+.error,.subError {
+  text-align: left;
+  font-family: $raleway;
+  font-size: .8rem;
+  color: orangered;  
+}
